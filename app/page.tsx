@@ -1,3 +1,4 @@
+import SiteHeader      from '@/components/layout/SiteHeader'
 import Hero            from '@/components/sections/Hero'
 import RecentWins      from '@/components/sections/RecentWins'
 import VideoWall       from '@/components/sections/VideoWall'
@@ -8,6 +9,7 @@ import ComplianceFooter from '@/components/sections/ComplianceFooter'
 export default function LandingPage() {
   return (
     <main>
+      <SiteHeader />
       <Hero />
       <LogoMarquee />
       <RecentWins />

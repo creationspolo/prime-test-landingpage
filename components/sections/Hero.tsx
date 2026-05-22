@@ -26,13 +26,10 @@ export default function Hero() {
 
       {/* ── Layer 2: floating glow orbs ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Large red orb — top left */}
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full
                         bg-volt-red/[0.07] blur-[120px] animate-orb-a" />
-        {/* Medium blue-ish orb — bottom right */}
         <div className="absolute -bottom-24 -right-24 w-[420px] h-[420px] rounded-full
                         bg-indigo-600/[0.06] blur-[100px] animate-orb-b" />
-        {/* Small red orb — center right */}
         <div className="absolute top-1/2 right-1/4 w-[280px] h-[280px] rounded-full
                         bg-volt-red/[0.05] blur-[80px] animate-orb-c" />
       </div>
@@ -51,22 +48,12 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
 
-          {/* ── FORM (mobile: top) ── */}
+          {/* ── COPY — mobile: first (top), desktop: left ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="w-full order-first lg:order-last lg:sticky lg:top-8"
-          >
-            <GHLForm />
-          </motion.div>
-
-          {/* ── COPY (mobile: below form) ── */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
-            className="flex flex-col gap-6 order-last lg:order-first"
+            className="flex flex-col gap-6 order-first lg:order-first"
           >
             {/* Pre-qualifier with animated accent bar */}
             <div className="flex items-center gap-3">
@@ -78,31 +65,24 @@ export default function Hero() {
 
             {/* ── MEGA HEADLINE — Bebas Neue ── */}
             <div className="font-headline select-none">
-              {/* Line 1 */}
               <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
                 GET OVER 80
               </div>
-              {/* Line 2 */}
               <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
                 QUALIFIED BIG
               </div>
-              {/* Line 3 */}
               <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
                 PROJECTS IN
               </div>
-              {/* Line 4 */}
               <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
                 12 WEEKS
               </div>
 
-              {/* GUARANTEED — larger, red glow, with corner marks */}
+              {/* GUARANTEED — larger, red glow */}
               <div className="relative inline-block mt-1">
-                <div
-                  className="text-[clamp(3.5rem,10vw,7.5rem)] text-volt-red leading-none glow-red"
-                >
+                <div className="text-[clamp(3.5rem,10vw,7.5rem)] text-volt-red leading-none glow-red">
                   GUARANTEED
                 </div>
-                {/* Underline accent */}
                 <div className="h-[3px] bg-volt-red rounded-full mt-1 animate-bar-glow" />
               </div>
 
@@ -138,6 +118,17 @@ export default function Hero() {
               <span className="text-volt-red font-medium">$50K–$80K in new monthly revenue</span>
             </p>
           </motion.div>
+
+          {/* ── FORM — mobile: second (below copy), desktop: right ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.15 }}
+            className="w-full order-last lg:order-last lg:sticky lg:top-8"
+          >
+            <GHLForm />
+          </motion.div>
+
         </div>
       </div>
 
