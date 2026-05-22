@@ -8,15 +8,12 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* Prevent layout shift on scroll-bar appearance */
     scrollbar-gutter: stable;
   }
 
   body {
     @apply bg-deep-navy text-pure-white font-body;
-    /* Remove tap flash on iOS */
     -webkit-tap-highlight-color: transparent;
-    /* Prevent horizontal scroll on mobile */
     overflow-x: hidden;
   }
 
@@ -24,37 +21,20 @@
     @apply font-display;
   }
 
-  /* Smoother touch scrolling on iOS */
   * {
     -webkit-overflow-scrolling: touch;
-  }
-
-  /* Consistent box-sizing */
-  *, *::before, *::after {
     box-sizing: border-box;
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-
-  /* Pause marquee on hover/focus */
-  .marquee-track:hover,
-  .marquee-track:focus-within {
-    animation-play-state: paused;
-  }
+  .text-balance { text-wrap: balance; }
 
   /* iOS safe-area helpers */
-  .pb-safe {
-    padding-bottom: max(1rem, env(safe-area-inset-bottom));
-  }
-  .pt-safe {
-    padding-top: env(safe-area-inset-top);
-  }
+  .pb-safe { padding-bottom: max(1rem, env(safe-area-inset-bottom)); }
+  .pt-safe { padding-top: env(safe-area-inset-top); }
 
-  /* Touch-friendly tap targets (min 44×44px per Apple HIG) */
+  /* Tap targets (Apple HIG 44px minimum) */
   .tap-target {
     min-width: 44px;
     min-height: 44px;
@@ -62,4 +42,63 @@
     align-items: center;
     justify-content: center;
   }
+
+  /* Pause marquee on hover */
+  .marquee-track:hover { animation-play-state: paused; }
+
+  /* ── Animated moving grid background ── */
+  .animated-grid {
+    background-image:
+      linear-gradient(rgba(248,250,252,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(248,250,252,0.045) 1px, transparent 1px);
+    background-size: 80px 80px;
+    animation: grid-drift 8s linear infinite;
+  }
+
+  /* Red text glow — used on GUARANTEED */
+  .glow-red {
+    text-shadow:
+      0 0 20px rgba(225, 29, 46, 0.8),
+      0 0 40px rgba(225, 29, 46, 0.4),
+      0 0 80px rgba(225, 29, 46, 0.2);
+  }
+
+  /* Futuristic card border — subtle red edge glow */
+  .card-future {
+    border: 1px solid rgba(225, 29, 46, 0.15);
+    box-shadow:
+      inset 0 1px 0 rgba(248,250,252,0.05),
+      0 0 40px rgba(225, 29, 46, 0.04);
+  }
+
+  /* Corner accent marks (top-left and bottom-right) */
+  .corner-marks {
+    position: relative;
+  }
+  .corner-marks::before,
+  .corner-marks::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-color: rgba(225, 29, 46, 0.6);
+    border-style: solid;
+  }
+  .corner-marks::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+  .corner-marks::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
+  }
+}
+
+/* Bebas Neue headline — letter-spacing tuned for max impact */
+.font-headline {
+  font-family: var(--font-bebas), Impact, sans-serif;
+  letter-spacing: 0.04em;
+  line-height: 0.92;
 }
