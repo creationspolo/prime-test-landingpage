@@ -102,3 +102,23 @@
   letter-spacing: 0.04em;
   line-height: 0.92;
 }
+
+/*
+ * Hero headline — per-line responsive sizing.
+ * Desktop (≥1024px): consistent clamp values.
+ * Mobile (<1024px): each line sized in vw so it fills the viewport width,
+ *   turning gaps into full-bleed impact text.
+ */
+.hl-l1, .hl-l2, .hl-l3, .hl-l4 { font-size: clamp(3rem, 8.5vw, 6.5rem); }
+.hl-l5                           { font-size: clamp(3.5rem, 10vw, 7.5rem); }
+.hl-l6                           { font-size: clamp(2rem, 5.5vw, 4.25rem); }
+
+@media (max-width: 1023px) {
+  /* Each vw value calibrated so the line spans ~90% of mobile viewport */
+  .hl-l1 { font-size: 15vw;   }  /* GET OVER 80      */
+  .hl-l2 { font-size: 13.5vw; }  /* QUALIFIED BIG    */
+  .hl-l3 { font-size: 16vw;   }  /* PROJECTS IN      */
+  .hl-l4 { font-size: 21vw;   }  /* 12 WEEKS         */
+  .hl-l5 { font-size: 16.5vw; }  /* GUARANTEED       */
+  .hl-l6 { font-size: 11vw;   }  /* OR YOU DON'T PAY */
+}

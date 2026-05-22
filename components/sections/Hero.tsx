@@ -65,29 +65,21 @@ export default function Hero() {
 
             {/* ── MEGA HEADLINE — Bebas Neue ── */}
             <div className="font-headline select-none">
-              <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
-                GET OVER 80
-              </div>
-              <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
-                QUALIFIED BIG
-              </div>
-              <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
-                PROJECTS IN
-              </div>
-              <div className="text-[clamp(3rem,8.5vw,6.5rem)] text-pure-white leading-none">
-                12 WEEKS
-              </div>
+              <div className="hl-l1 text-pure-white leading-none">GET OVER 80</div>
+              <div className="hl-l2 text-pure-white leading-none">QUALIFIED BIG</div>
+              <div className="hl-l3 text-pure-white leading-none">PROJECTS IN</div>
+              <div className="hl-l4 text-pure-white leading-none">12 WEEKS</div>
 
-              {/* GUARANTEED — larger, red glow */}
-              <div className="relative inline-block mt-1">
-                <div className="text-[clamp(3.5rem,10vw,7.5rem)] text-volt-red leading-none glow-red">
+              {/* GUARANTEED — red glow, block on mobile so underline fills full width */}
+              <div className="relative block lg:inline-block mt-1">
+                <div className="hl-l5 text-volt-red leading-none glow-red">
                   GUARANTEED
                 </div>
                 <div className="h-[3px] bg-volt-red rounded-full mt-1 animate-bar-glow" />
               </div>
 
               {/* OR YOU DON'T PAY */}
-              <div className="text-[clamp(2rem,5.5vw,4.25rem)] text-pure-white/75 leading-none mt-2 tracking-widest">
+              <div className="hl-l6 text-pure-white/75 leading-none mt-2 tracking-widest">
                 OR YOU DON&apos;T PAY
               </div>
             </div>
