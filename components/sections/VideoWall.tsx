@@ -8,9 +8,8 @@ type Testimonial = {
   result: string
   name: string
   business: string
-  videoSrc?: string
-  videoType?: 'mp4' | 'mov'
-  youtubeId?: string
+  youtubeId: string
+  isShort?: boolean
 }
 
 const TESTIMONIALS: Testimonial[] = [
@@ -19,81 +18,53 @@ const TESTIMONIALS: Testimonial[] = [
     result: 'TRIPLE HIS REVENUE AND DID OVER 70K IN REV FIRST MONTH WORKING WITH US',
     name: 'Jesus Malfa',
     business: 'Landscape Contractor',
-    videoSrc: '/testimony%20part%205%20(05-22).mp4',
-    videoType: 'mp4',
+    youtubeId: 'Ju7wnhEhURE',
+    isShort: true,
   },
   {
     id: 2,
     result: 'ADDED ADDITIONAL 50-80K MONTHLY',
     name: 'Ricardo',
     business: 'General Contractor — Coachella Valley',
-    videoSrc: '/testtimonial%20video%20pt5%2005-21-26.mp4',
-    videoType: 'mp4',
+    youtubeId: '9qIhVGY6rNI',
+    isShort: true,
   },
   {
     id: 3,
     result: 'CLOSING OVER 100K EVERY MONTH CONSISTENTLY',
     name: 'Yair',
     business: 'Landscape Designer',
-    videoSrc: '/new%20testmony%20zoom%20call%20yair.mp4',
-    videoType: 'mp4',
+    youtubeId: 'paLFMe1w8yg',
+    isShort: true,
   },
   {
     id: 4,
     result: 'CONSISTENTLY CLOSES MORE THAN 10 DEALS EVERY MONTH',
     name: 'Brian M.',
     business: 'General Contractor',
-    videoSrc: '/prime%20ambiton%20inperson%20d(05-22-26).mp4',
-    videoType: 'mp4',
+    youtubeId: 'jLkLQrkPa9I',
+    isShort: false,
   },
   {
     id: 5,
     result: 'CLOSED OVER 7 JOBS HIS FIRST MONTH WORKING WITH US',
     name: '',
     business: '',
-    videoSrc: '/IMG_3984.MOV',
-    videoType: 'mov',
+    youtubeId: '0er-CPY74zw',
+    isShort: false,
   },
 ]
 
 function VideoPlayer({ t }: { t: Testimonial }) {
-  if (t.videoSrc) {
-    return (
-      <video
-        controls
-        playsInline
-        preload="metadata"
-        className="absolute inset-0 w-full h-full"
-        style={{ objectFit: 'contain', background: '#111827' }}
-      >
-        {/* URL-encoded paths ensure mobile browsers (Safari/Chrome) load the source correctly */}
-        <source src={t.videoSrc} type="video/mp4" />
-        {t.videoType === 'mov' && <source src={t.videoSrc} type="video/quicktime" />}
-      </video>
-    )
-  }
-
-  if (t.youtubeId) {
-    return (
-      <iframe
-        src={`https://www.youtube.com/embed/${t.youtubeId}?rel=0&modestbranding=1`}
-        title={t.result}
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowFullScreen
-        className="absolute inset-0 w-full h-full"
-        loading="lazy"
-      />
-    )
-  }
-
   return (
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="w-14 h-14 rounded-full bg-volt-red flex items-center justify-center shadow-red-glow">
-        <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M8 5v14l11-7z" />
-        </svg>
-      </div>
-    </div>
+    <iframe
+      src={`https://www.youtube.com/embed/${t.youtubeId}?rel=0&modestbranding=1`}
+      title={t.result}
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+      className="absolute inset-0 w-full h-full"
+      loading="lazy"
+    />
   )
 }
 
@@ -135,9 +106,10 @@ function VideoCard({
         )}
       </div>
 
-      {/* Video */}
-      <div className="w-full lg:flex-1">
-        <div className="relative aspect-video rounded-xl overflow-hidden bg-dark-slate border border-steel-gray/20 shadow-xl">
+      {/* Video — portrait for Shorts, landscape for regular */}
+      <div className={`w-full lg:flex-1 flex justify-center`}>
+        <div className={`relative rounded-xl overflow-hidden bg-dark-slate border border-steel-gray/20 shadow-xl w-full
+          ${testimonial.isShort ? 'max-w-[320px] aspect-[9/16]' : 'aspect-video'}`}>
           <VideoPlayer t={testimonial} />
         </div>
       </div>
