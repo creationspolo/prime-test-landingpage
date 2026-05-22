@@ -18,7 +18,7 @@ const TESTIMONIALS: Testimonial[] = [
     result: 'TRIPLE HIS REVENUE AND DID OVER 70K IN REV FIRST MONTH WORKING WITH US',
     name: 'Jesus Malfa',
     business: 'Landscape Contractor',
-    youtubeId: 'Ju7wnhEhURE',
+    youtubeId: '9qIhVGY6rNI',
     isShort: true,
   },
   {
@@ -26,7 +26,7 @@ const TESTIMONIALS: Testimonial[] = [
     result: 'ADDED ADDITIONAL 50-80K MONTHLY',
     name: 'Ricardo',
     business: 'General Contractor — Coachella Valley',
-    youtubeId: '9qIhVGY6rNI',
+    youtubeId: 'Ju7wnhEhURE',
     isShort: true,
   },
   {
@@ -34,8 +34,8 @@ const TESTIMONIALS: Testimonial[] = [
     result: 'CLOSING OVER 100K EVERY MONTH CONSISTENTLY',
     name: 'Yair',
     business: 'Landscape Designer',
-    youtubeId: 'paLFMe1w8yg',
-    isShort: true,
+    youtubeId: '0er-CPY74zw',
+    isShort: false,
   },
   {
     id: 4,
@@ -50,8 +50,8 @@ const TESTIMONIALS: Testimonial[] = [
     result: 'CLOSED OVER 7 JOBS HIS FIRST MONTH WORKING WITH US',
     name: '',
     business: '',
-    youtubeId: '0er-CPY74zw',
-    isShort: false,
+    youtubeId: 'paLFMe1w8yg',
+    isShort: true,
   },
 ]
 
