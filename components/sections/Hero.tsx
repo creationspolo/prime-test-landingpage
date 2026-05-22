@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import GHLForm from '@/components/form/GHLForm'
-import { BrandIcon } from '@/components/ui/BrandLogo'
 
 export default function Hero() {
   const [showSticky, setShowSticky] = useState(false)
@@ -56,9 +55,6 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: 'easeOut' }}
             className="flex flex-col gap-6 order-first lg:order-first"
           >
-            {/* Brand icon — target shoots upward on load, sits beside headline */}
-            <BrandIcon size={46} />
-
             {/* Pre-qualifier with animated accent bar */}
             <div className="flex items-center gap-3">
               <div className="h-px w-8 bg-volt-red animate-bar-glow" />
