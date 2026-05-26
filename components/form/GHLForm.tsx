@@ -1,10 +1,48 @@
 'use client'
 
 import Script from 'next/script'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
+
+declare global {
+  interface Window { fbq?: (...args: unknown[]) => void }
+}
+
+function fireLead() {
+  if (typeof window.fbq === 'function') window.fbq('track', 'Lead')
+  setTimeout(() => { window.location.href = '/thank-you' }, 1000)
+}
 
 export default function GHLForm() {
   const [loaded, setLoaded] = useState(false)
+  const firedRef = useRef(false)
+  const loadCountRef = useRef(0)
+
+  useEffect(() => {
+    function onMessage(e: MessageEvent) {
+      if (firedRef.current) return
+      const d = e.data
+      // GHL posts a message when the survey completes
+      if (
+        (typeof d === 'string' && d.includes('submitSurvey')) ||
+        (typeof d === 'object' && d !== null && (d.type === 'submitSurvey' || d.type === 'form_submitted'))
+      ) {
+        firedRef.current = true
+        fireLead()
+      }
+    }
+    window.addEventListener('message', onMessage)
+    return () => window.removeEventListener('message', onMessage)
+  }, [])
+
+  function handleIframeLoad() {
+    setLoaded(true)
+    loadCountRef.current += 1
+    // GHL reloads the iframe on submission — second load = form submitted
+    if (loadCountRef.current >= 2 && !firedRef.current) {
+      firedRef.current = true
+      fireLead()
+    }
+  }
 
   return (
     <div
@@ -45,7 +83,7 @@ export default function GHLForm() {
         scrolling="no"
         id="gvZ7vBtoA7ZuTXJOY0zn"
         title="Book Your Free Strategy Call"
-        onLoad={() => setLoaded(true)}
+        onLoad={handleIframeLoad}
       />
 
       <Script
