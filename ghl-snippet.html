@@ -1,0 +1,719 @@
+<!--
+  PRIME AMBITION MARKETING — Full Landing Page
+  Paste everything below into GHL Custom Javascript/HTML block (or any platform).
+  No <html>/<head>/<body> tags needed — paste as-is.
+
+  IMAGES: Upload your 7 result images to any host (GHL Media, Cloudinary, etc.)
+  then replace YOUR_IMAGE_HOST in the WINS array inside the <script> tag below.
+  Image filenames to upload:
+    1. abrham results.png
+    2. hardscape results.png
+    3. hardscape results pt2 ric.jpeg
+    4. photo_5093770796211047484_y.jpg
+    5. photo_5093770796211047485_y.jpg
+    6. photo_5093770796211047486_y.jpg
+    7. photo_5093770796211047487_y.jpg
+-->
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+
+.pa-wrap{
+  font-family:'Inter',system-ui,sans-serif;
+  background:#0A1120;
+  color:#F8FAFC;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* ── HEADER ── */
+.pa-header{
+  background:rgba(10,17,32,0.95);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+  padding:16px 24px;
+}
+.pa-logo{display:flex;align-items:center;gap:14px;}
+.pa-logo-icon{
+  animation:paLogoSpring .6s cubic-bezier(.34,1.56,.64,1) .08s both;
+  flex-shrink:0;
+}
+@keyframes paLogoSpring{
+  from{transform:scale(.4) translateY(24px);opacity:0;}
+  to  {transform:scale(1)  translateY(0);   opacity:1;}
+}
+.pa-wordmark{
+  display:flex;flex-direction:column;line-height:1;
+  animation:paWordSlide .4s ease-out .28s both;
+}
+@keyframes paWordSlide{
+  from{opacity:0;transform:translateX(-12px);}
+  to  {opacity:1;transform:translateX(0);}
+}
+.pa-wm-main{
+  font-family:'Bebas Neue',Impact,sans-serif;
+  font-size:1.55rem;letter-spacing:.04em;color:#F8FAFC;line-height:1;
+}
+.pa-wm-sub{
+  font-size:8.5px;letter-spacing:.42em;color:#9CA3AF;
+  font-weight:600;text-transform:uppercase;margin-top:4px;
+}
+
+/* ── HERO ── */
+.pa-hero{position:relative;background:#0A1120;overflow:hidden;}
+.pa-grid-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(248,250,252,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(248,250,252,.045) 1px,transparent 1px);
+  background-size:80px 80px;
+  animation:paGridDrift 8s linear infinite;
+}
+@keyframes paGridDrift{from{background-position:0 0;}to{background-position:80px 80px;}}
+.pa-orb{position:absolute;border-radius:50%;pointer-events:none;}
+.pa-orb-a{width:500px;height:500px;top:-128px;left:-128px;background:rgba(225,29,46,.07);filter:blur(120px);animation:paOrbA 8s ease-in-out infinite alternate;}
+.pa-orb-b{width:420px;height:420px;bottom:-96px;right:-96px;background:rgba(79,70,229,.06);filter:blur(100px);animation:paOrbB 10s ease-in-out infinite alternate;}
+@keyframes paOrbA{from{transform:translate(0,0);}to{transform:translate(30px,20px);}}
+@keyframes paOrbB{from{transform:translate(0,0);}to{transform:translate(-20px,-30px);}}
+.pa-scan{
+  position:absolute;left:0;right:0;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent 0%,rgba(225,29,46,.25) 30%,rgba(225,29,46,.5) 50%,rgba(225,29,46,.25) 70%,transparent 100%);
+  animation:paScan 6s linear infinite;
+}
+@keyframes paScan{from{top:-2px;}to{top:100%;}}
+
+.pa-hero-inner{
+  position:relative;z-index:10;
+  max-width:1280px;margin:0 auto;
+  padding:32px 16px 64px;
+  display:flex;flex-direction:column;gap:32px;
+}
+@media(min-width:1024px){
+  .pa-hero-inner{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:64px;align-items:start;padding:80px 32px;
+  }
+}
+
+.pa-copy{display:flex;flex-direction:column;gap:24px;animation:paFadeUp .5s ease-out both;}
+.pa-form-col{animation:paFadeUp .5s ease-out .15s both;}
+@keyframes paFadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+.pa-pre{display:flex;align-items:center;gap:12px;}
+.pa-pre-bar{width:32px;height:1px;background:#E11D2E;animation:paBarGlow 2s ease-in-out infinite alternate;}
+.pa-pre-text{color:#E11D2E;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.22em;}
+
+/* Headline */
+.pa-hl{font-family:'Bebas Neue',Impact,sans-serif;letter-spacing:.04em;line-height:.92;user-select:none;}
+.hl-l1,.hl-l2,.hl-l3,.hl-l4{font-size:clamp(3rem,8.5vw,6.5rem);}
+.hl-l5{font-size:clamp(3.5rem,10vw,7.5rem);}
+.hl-l6{font-size:clamp(2rem,5.5vw,4.25rem);}
+@media(max-width:1023px){
+  .hl-l1{font-size:15vw;}
+  .hl-l2{font-size:13.5vw;}
+  .hl-l3{font-size:16vw;}
+  .hl-l4{font-size:21vw;}
+  .hl-l5{font-size:16.5vw;}
+  .hl-l6{font-size:11vw;}
+}
+.pa-hl-white{color:#F8FAFC;}
+.pa-hl-red{color:#E11D2E;}
+.pa-hl-dim{color:rgba(248,250,252,.75);letter-spacing:.1em;}
+.pa-glow-red{text-shadow:0 0 20px rgba(225,29,46,.8),0 0 40px rgba(225,29,46,.4),0 0 80px rgba(225,29,46,.2);}
+.pa-red-bar{height:3px;background:#E11D2E;border-radius:999px;margin-top:4px;animation:paBarGlow 2s ease-in-out infinite alternate;}
+@keyframes paBarGlow{from{box-shadow:0 0 4px rgba(225,29,46,.4);}to{box-shadow:0 0 12px rgba(225,29,46,.9),0 0 24px rgba(225,29,46,.4);}}
+
+.pa-badges{display:flex;flex-wrap:wrap;gap:8px;}
+.pa-badge{display:flex;align-items:center;gap:8px;background:rgba(17,24,39,.8);border:1px solid rgba(225,29,46,.2);border-radius:999px;padding:6px 12px;}
+.pa-badge-dot{width:6px;height:6px;border-radius:50%;background:#E11D2E;flex-shrink:0;}
+.pa-badge-text{font-size:11px;font-weight:500;color:#F8FAFC;}
+.pa-social{color:#9CA3AF;font-size:13px;line-height:1.5;}
+.pa-social b{color:#F8FAFC;font-weight:500;}
+.pa-social em{color:#E11D2E;font-style:normal;font-weight:500;}
+
+/* Form card */
+.pa-form-card{background:#111827;border-radius:16px;border:1px solid rgba(156,163,175,.2);overflow:hidden;box-shadow:0 25px 50px -12px rgba(0,0,0,.5);}
+@media(min-width:1024px){.pa-form-col{position:sticky;top:32px;}}
+.pa-form-hdr{padding:20px 24px 8px;}
+.pa-form-lbl{color:#E11D2E;font-size:10px;text-transform:uppercase;letter-spacing:.2em;font-weight:600;margin-bottom:4px;}
+.pa-form-ttl{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.125rem;color:#F8FAFC;letter-spacing:.04em;}
+.pa-skel-wrap{padding:0 24px 20px;display:flex;flex-direction:column;gap:12px;}
+.pa-skel{height:44px;border-radius:8px;background:rgba(156,163,175,.1);animation:paPulse 1.5s ease-in-out infinite;}
+.pa-skel-btn{background:rgba(225,29,46,.2);}
+@keyframes paPulse{0%,100%{opacity:1;}50%{opacity:.4;}}
+
+/* Sticky mobile CTA */
+.pa-sticky{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:50;
+  padding:12px 16px max(16px,env(safe-area-inset-bottom));
+  background:linear-gradient(to top,#0A1120 70%,transparent);
+  transform:translateY(80px);transition:transform .28s ease-in-out;
+}
+.pa-sticky.show{transform:translateY(0);}
+@media(max-width:1023px){.pa-sticky{display:block;}}
+.pa-sticky-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  background:#E11D2E;color:#fff;font-weight:600;font-size:14px;
+  padding:16px;border-radius:12px;border:none;cursor:pointer;
+  text-decoration:none;box-shadow:0 0 30px rgba(225,29,46,.4);
+}
+
+/* ── MARQUEE ── */
+.pa-marq{padding:40px 0;background:#0A1120;border-top:1px solid rgba(156,163,175,.1);border-bottom:1px solid rgba(156,163,175,.1);overflow:hidden;}
+.pa-marq-lbl{text-align:center;color:#9CA3AF;font-size:10px;text-transform:uppercase;letter-spacing:.2em;margin-bottom:20px;}
+.pa-marq-outer{position:relative;overflow:hidden;}
+.pa-marq-fl{position:absolute;left:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,#0A1120,transparent);z-index:10;pointer-events:none;}
+.pa-marq-fr{position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to left,#0A1120,transparent);z-index:10;pointer-events:none;}
+.pa-marq-track{display:flex;gap:12px;width:max-content;animation:paMarquee 30s linear infinite;}
+.pa-marq-track:hover{animation-play-state:paused;}
+@keyframes paMarquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.pa-marq-item{
+  flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  padding:0 24px;height:44px;
+  border:1px solid rgba(156,163,175,.2);border-radius:8px;
+  color:#9CA3AF;font-size:13px;font-weight:600;white-space:nowrap;
+  transition:color .3s,border-color .3s;
+}
+.pa-marq-item:hover{color:#F8FAFC;border-color:rgba(156,163,175,.5);}
+
+/* ── SECTION SHARED ── */
+.pa-sec-hdr{text-align:center;margin-bottom:40px;}
+.pa-sec-ttl{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(1.5rem,4vw,2.75rem);letter-spacing:.04em;color:#F8FAFC;margin-bottom:12px;}
+.pa-divider{width:48px;height:4px;background:#E11D2E;border-radius:999px;margin:0 auto;}
+.pa-sec-desc{color:#9CA3AF;font-size:14px;margin-top:12px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6;}
+.pa-sec-inner{max-width:900px;margin:0 auto;padding:0 16px;}
+
+/* ── RECENT WINS ── */
+.pa-wins{padding:48px 0;background:#0A1120;}
+.pa-slideshow{position:relative;border-radius:16px;overflow:hidden;background:#111827;border:1px solid rgba(156,163,175,.2);box-shadow:0 25px 50px -12px rgba(0,0,0,.5);user-select:none;}
+.pa-slide-area{position:relative;width:100%;aspect-ratio:4/3;}
+@media(min-width:640px){.pa-slide-area{aspect-ratio:16/10;}}
+@media(min-width:1024px){.pa-slide-area{aspect-ratio:16/9;}}
+.pa-slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:12px;opacity:0;transform:translateX(100%);transition:opacity .38s ease,transform .38s cubic-bezier(.32,.72,0,1);}
+@media(min-width:640px){.pa-slide{padding:24px;}}
+.pa-slide.active{opacity:1;transform:translateX(0);}
+.pa-slide.exit-l{opacity:0;transform:translateX(-100%);}
+.pa-slide.exit-r{opacity:0;transform:translateX(100%);}
+.pa-slide img{max-width:100%;max-height:100%;object-fit:contain;display:block;pointer-events:none;}
+.pa-arr{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:10;
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(10,17,32,.75);border:1px solid rgba(156,163,175,.3);
+  color:#F8FAFC;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:background .2s,border-color .2s;
+}
+.pa-arr:hover{background:#E11D2E;border-color:#E11D2E;}
+.pa-arr-p{left:8px;} .pa-arr-n{right:8px;}
+@media(min-width:640px){.pa-arr{width:44px;height:44px;}.pa-arr-p{left:12px;}.pa-arr-n{right:12px;}}
+.pa-ctr{position:absolute;top:8px;right:8px;background:rgba(10,17,32,.75);border-radius:999px;padding:4px 10px;font-size:11px;color:#F8FAFC;font-weight:500;z-index:10;}
+.pa-swipe-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);color:rgba(156,163,175,.6);font-size:10px;pointer-events:none;z-index:10;}
+@media(min-width:640px){.pa-swipe-hint{display:none;}}
+.pa-prog{position:absolute;bottom:0;left:0;right:0;height:3px;background:rgba(156,163,175,.2);z-index:10;}
+.pa-prog-bar{height:100%;background:#E11D2E;width:0%;}
+.pa-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:16px;}
+.pa-dot{border-radius:999px;background:rgba(156,163,175,.4);width:8px;height:8px;border:none;cursor:pointer;transition:all .3s;padding:0;}
+.pa-dot.active{width:20px;height:8px;background:#E11D2E;}
+.pa-thumbs{display:none;gap:8px;margin-top:12px;justify-content:center;}
+@media(min-width:640px){.pa-thumbs{display:flex;}}
+.pa-thumb{width:56px;height:40px;border-radius:6px;overflow:hidden;border:2px solid rgba(156,163,175,.2);cursor:pointer;flex-shrink:0;background:#111827;transition:border-color .2s;padding:0;}
+.pa-thumb img{width:100%;height:100%;object-fit:contain;}
+.pa-thumb.active{border-color:#E11D2E;box-shadow:0 0 8px rgba(225,29,46,.4);}
+@media(min-width:640px){.pa-thumb{width:64px;height:48px;}}
+.pa-wins-cta{text-align:center;margin-top:32px;}
+.pa-outline-btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #E11D2E;color:#E11D2E;font-weight:600;font-size:14px;padding:12px 24px;border-radius:8px;text-decoration:none;transition:background .2s,color .2s;}
+.pa-outline-btn:hover{background:#E11D2E;color:#fff;}
+
+/* ── VIDEO WALL ── */
+.pa-vids{padding:48px 0;background:#111827;}
+.pa-vid-list{display:flex;flex-direction:column;gap:64px;}
+.pa-vid-card{display:flex;flex-direction:column;gap:20px;align-items:center;opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease;}
+.pa-vid-card.in-view{opacity:1;transform:translateY(0);}
+@media(min-width:1024px){
+  .pa-vid-card{flex-direction:row;gap:40px;}
+  .pa-vid-card.rev{flex-direction:row-reverse;}
+}
+.pa-vid-copy{width:100%;}
+@media(min-width:1024px){.pa-vid-copy{flex:1;}}
+.pa-vid-result{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(1.25rem,4vw,2.1rem);letter-spacing:.04em;color:#F8FAFC;line-height:1.1;}
+.pa-vid-name{color:#9CA3AF;font-size:13px;margin-top:8px;}
+.pa-vid-wrap{width:100%;}
+@media(min-width:1024px){.pa-vid-wrap{flex:1;display:flex;justify-content:center;}}
+.pa-vid-frame{position:relative;border-radius:12px;overflow:hidden;background:#0A1120;border:1px solid rgba(156,163,175,.2);box-shadow:0 20px 40px rgba(0,0,0,.4);width:100%;}
+.pa-vid-frame.short{max-width:320px;aspect-ratio:9/16;margin:0 auto;}
+.pa-vid-frame.land{aspect-ratio:16/9;}
+.pa-vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:none;}
+.pa-vids-cta{text-align:center;margin-top:48px;}
+.pa-solid-btn{display:inline-flex;align-items:center;gap:8px;background:#E11D2E;color:#fff;font-weight:600;font-size:14px;padding:14px 32px;border-radius:8px;text-decoration:none;transition:background .2s;box-shadow:0 0 30px rgba(225,29,46,.4);}
+.pa-solid-btn:hover{background:#be1824;}
+
+/* ── FINAL CTA ── */
+.pa-final{position:relative;padding:64px 16px;background:#111827;border-top:1px solid rgba(156,163,175,.1);overflow:hidden;text-align:center;}
+.pa-final-topbar{position:absolute;top:0;left:0;right:0;height:4px;background:#E11D2E;}
+.pa-final-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:600px;height:400px;border-radius:50%;background:rgba(225,29,46,.05);filter:blur(60px);pointer-events:none;}
+.pa-final-inner{position:relative;z-index:10;max-width:700px;margin:0 auto;opacity:0;transform:translateY(24px);transition:opacity .45s ease,transform .45s ease;}
+.pa-final-inner.in-view{opacity:1;transform:translateY(0);}
+.pa-final-pre{color:#E11D2E;font-size:10px;text-transform:uppercase;letter-spacing:.2em;font-weight:600;margin-bottom:20px;}
+.pa-final-ttl{font-family:'Bebas Neue',Impact,sans-serif;font-size:clamp(1.75rem,5vw,3.25rem);letter-spacing:.04em;color:#F8FAFC;line-height:1;margin-bottom:20px;}
+.pa-final-body{color:#9CA3AF;font-size:15px;line-height:1.6;max-width:500px;margin:0 auto 28px;}
+.pa-final-btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;background:#E11D2E;color:#fff;font-weight:700;font-size:15px;padding:18px 40px;border-radius:12px;text-decoration:none;transition:background .2s;box-shadow:0 0 40px rgba(225,29,46,.45);width:100%;max-width:400px;}
+@media(min-width:640px){.pa-final-btn{width:auto;border-radius:8px;}}
+.pa-final-btn:hover{background:#be1824;}
+.pa-guarantee{color:#9CA3AF;font-size:11px;line-height:1.6;margin-top:16px;max-width:340px;margin-left:auto;margin-right:auto;}
+.pa-guarantee b{color:#F8FAFC;font-weight:500;}
+.pa-guarantee em{color:#E11D2E;font-style:normal;font-weight:500;}
+
+/* ── FOOTER ── */
+.pa-footer{background:#0A1120;border-top:1px solid rgba(156,163,175,.1);padding:32px 16px 40px;text-align:center;}
+.pa-ft-logo{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:16px;}
+.pa-ft-logo-name{font-family:'Bebas Neue',Impact,sans-serif;font-size:1.1rem;letter-spacing:.04em;color:#F8FAFC;}
+.pa-ft-logo-name span{color:#E11D2E;}
+.pa-ft-links{display:flex;align-items:center;justify-content:center;gap:20px;margin-bottom:16px;}
+.pa-ft-links a{color:#9CA3AF;font-size:12px;text-decoration:none;transition:color .2s;}
+.pa-ft-links a:hover{color:#F8FAFC;}
+.pa-ft-sep{color:rgba(156,163,175,.3);font-size:12px;}
+.pa-disclaimer{color:#9CA3AF;font-size:10px;line-height:1.6;max-width:680px;margin:0 auto 12px;}
+.pa-copy-yr{color:rgba(156,163,175,.4);font-size:10px;}
+</style>
+
+<div class="pa-wrap">
+
+  <!-- ── HEADER ── -->
+  <header class="pa-header">
+    <div class="pa-logo">
+      <svg class="pa-logo-icon" width="54" height="54" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <filter id="pa-logo-glow" x="-15%" y="-15%" width="130%" height="130%">
+            <feDropShadow dx="0" dy="0" stdDeviation="2.5" flood-color="#E11D2E" flood-opacity="0.35"/>
+            <feDropShadow dx="0" dy="0" stdDeviation="5" flood-color="#1E4F9C" flood-opacity="0.25"/>
+          </filter>
+        </defs>
+        <g filter="url(#pa-logo-glow)">
+          <circle cx="40" cy="40" r="37" fill="#1E5CB3"/>
+          <circle cx="40" cy="40" r="29.5" fill="#F8FAFC"/>
+          <circle cx="40" cy="40" r="28" fill="#E11D2E"/>
+          <circle cx="40" cy="40" r="20" fill="#F8FAFC"/>
+          <circle cx="40" cy="40" r="12" fill="#E11D2E"/>
+          <circle cx="40" cy="40" r="5.5" fill="#F8FAFC"/>
+          <line x1="25" y1="58" x2="54" y2="23" stroke="#F8FAFC" stroke-width="5.5" stroke-linecap="round"/>
+          <polygon points="61,15 58,27 50,21" fill="#F8FAFC"/>
+        </g>
+      </svg>
+      <div class="pa-wordmark">
+        <span class="pa-wm-main">PRIME</span>
+        <span class="pa-wm-main">AMBITION</span>
+        <span class="pa-wm-sub">MARKETING</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── HERO ── -->
+  <section class="pa-hero">
+    <div class="pa-grid-bg"></div>
+    <div class="pa-orb pa-orb-a"></div>
+    <div class="pa-orb pa-orb-b"></div>
+    <div class="pa-scan"></div>
+
+    <div class="pa-hero-inner">
+
+      <!-- Copy -->
+      <div class="pa-copy">
+        <div class="pa-pre">
+          <div class="pa-pre-bar"></div>
+          <p class="pa-pre-text">For $1M+ per Year Concrete &amp; Hardscapers Ready To Grow</p>
+        </div>
+
+        <div class="pa-hl">
+          <div class="hl-l1 pa-hl-white">GET OVER 80</div>
+          <div class="hl-l2 pa-hl-white">QUALIFIED BIG</div>
+          <div class="hl-l3 pa-hl-white">PROJECTS IN</div>
+          <div class="hl-l4 pa-hl-white">12 WEEKS</div>
+          <div style="display:block;margin-top:4px;">
+            <div class="hl-l5 pa-hl-red pa-glow-red">GUARANTEED</div>
+            <div class="pa-red-bar"></div>
+          </div>
+          <div class="hl-l6 pa-hl-dim" style="margin-top:8px;">OR YOU DON'T PAY</div>
+        </div>
+
+        <div class="pa-badges">
+          <div class="pa-badge"><div class="pa-badge-dot"></div><span class="pa-badge-text">250% Avg. Lead Increase</span></div>
+          <div class="pa-badge"><div class="pa-badge-dot"></div><span class="pa-badge-text">No Long-Term Contracts</span></div>
+          <div class="pa-badge"><div class="pa-badge-dot"></div><span class="pa-badge-text">Results in 30 Days</span></div>
+        </div>
+
+        <p class="pa-social">
+          Trusted by <b>200+ contractors</b> nationwide — averaging <em>$50K–$80K in new monthly revenue</em>
+        </p>
+      </div>
+
+      <!-- Form -->
+      <div class="pa-form-col">
+        <div id="pa-lead-form" class="pa-form-card">
+          <div class="pa-form-hdr">
+            <p class="pa-form-lbl">Free Strategy Call</p>
+            <h2 class="pa-form-ttl">FILL OUT THE QUICK FORM</h2>
+          </div>
+          <div class="pa-skel-wrap" id="pa-skel">
+            <div class="pa-skel"></div>
+            <div class="pa-skel"></div>
+            <div class="pa-skel"></div>
+            <div class="pa-skel"></div>
+            <div class="pa-skel pa-skel-btn"></div>
+          </div>
+          <iframe
+            src="https://api.leadconnectorhq.com/widget/survey/gvZ7vBtoA7ZuTXJOY0zn"
+            id="pa-ghl-iframe"
+            style="border:none;width:100%;min-height:520px;display:none;"
+            scrolling="no"
+            title="Book Your Free Strategy Call"
+            onload="paIframeLoaded()"
+          ></iframe>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Mobile sticky CTA -->
+  <div class="pa-sticky" id="pa-sticky">
+    <a href="#pa-lead-form" class="pa-sticky-btn">
+      Book My Free Strategy Call
+      <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+    </a>
+  </div>
+
+  <!-- ── MARQUEE ── -->
+  <section class="pa-marq">
+    <p class="pa-marq-lbl">Trusted by Contractors Nationwide</p>
+    <div class="pa-marq-outer">
+      <div class="pa-marq-fl"></div>
+      <div class="pa-marq-fr"></div>
+      <div class="pa-marq-track">
+        <div class="pa-marq-item">Apex Roofing</div>
+        <div class="pa-marq-item">Summit HVAC</div>
+        <div class="pa-marq-item">TrueNorth Plumbing</div>
+        <div class="pa-marq-item">ProBuild Contractors</div>
+        <div class="pa-marq-item">Ironclad Electric</div>
+        <div class="pa-marq-item">Crestview Construction</div>
+        <div class="pa-marq-item">Blue Ridge Mechanical</div>
+        <div class="pa-marq-item">Peak Performance Contractors</div>
+        <div class="pa-marq-item">Apex Roofing</div>
+        <div class="pa-marq-item">Summit HVAC</div>
+        <div class="pa-marq-item">TrueNorth Plumbing</div>
+        <div class="pa-marq-item">ProBuild Contractors</div>
+        <div class="pa-marq-item">Ironclad Electric</div>
+        <div class="pa-marq-item">Crestview Construction</div>
+        <div class="pa-marq-item">Blue Ridge Mechanical</div>
+        <div class="pa-marq-item">Peak Performance Contractors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RECENT WINS ── -->
+  <section class="pa-wins">
+    <div class="pa-sec-inner">
+      <div class="pa-sec-hdr">
+        <h2 class="pa-sec-ttl">CLIENT RECENT WINS</h2>
+        <div class="pa-divider"></div>
+        <p class="pa-sec-desc">Real results from real contractors — texts, dashboards, and payment notifications.</p>
+      </div>
+
+      <div class="pa-slideshow" id="pa-slideshow">
+        <div class="pa-slide-area" id="pa-slide-area"></div>
+        <button class="pa-arr pa-arr-p" onclick="paPrev()" aria-label="Previous">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+        </button>
+        <button class="pa-arr pa-arr-n" onclick="paNext()" aria-label="Next">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+        <div class="pa-ctr" id="pa-ctr">1 / 7</div>
+        <div class="pa-swipe-hint">swipe to browse</div>
+        <div class="pa-prog"><div class="pa-prog-bar" id="pa-prog-bar"></div></div>
+      </div>
+
+      <div class="pa-dots" id="pa-dots"></div>
+      <div class="pa-thumbs" id="pa-thumbs"></div>
+
+      <div class="pa-wins-cta">
+        <a href="#pa-lead-form" class="pa-outline-btn">
+          I Want Results Like These
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── VIDEO WALL ── -->
+  <section class="pa-vids">
+    <div class="pa-sec-inner">
+      <div class="pa-sec-hdr">
+        <h2 class="pa-sec-ttl">REAL CONTRACTORS. REAL RESULTS.</h2>
+        <div class="pa-divider"></div>
+      </div>
+
+      <div class="pa-vid-list">
+
+        <div class="pa-vid-card" data-delay="0">
+          <div class="pa-vid-copy">
+            <p class="pa-form-lbl">Client Result</p>
+            <h3 class="pa-vid-result">TRIPLE HIS REVENUE AND DID OVER 70K IN REV FIRST MONTH WORKING WITH US</h3>
+            <p class="pa-vid-name">Jesus Malfa — Landscape Contractor</p>
+          </div>
+          <div class="pa-vid-wrap">
+            <div class="pa-vid-frame short">
+              <iframe src="https://www.youtube.com/embed/9qIhVGY6rNI?rel=0&modestbranding=1" title="Jesus Malfa result" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="pa-vid-card rev" data-delay="1">
+          <div class="pa-vid-copy" style="text-align:right;">
+            <p class="pa-form-lbl">Client Result</p>
+            <h3 class="pa-vid-result">ADDED ADDITIONAL 50-80K MONTHLY</h3>
+            <p class="pa-vid-name">Ricardo — General Contractor, Coachella Valley</p>
+          </div>
+          <div class="pa-vid-wrap">
+            <div class="pa-vid-frame short">
+              <iframe src="https://www.youtube.com/embed/Ju7wnhEhURE?rel=0&modestbranding=1" title="Ricardo result" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="pa-vid-card" data-delay="2">
+          <div class="pa-vid-copy">
+            <p class="pa-form-lbl">Client Result</p>
+            <h3 class="pa-vid-result">CLOSING OVER 100K EVERY MONTH CONSISTENTLY</h3>
+            <p class="pa-vid-name">Yair — Landscape Designer</p>
+          </div>
+          <div class="pa-vid-wrap">
+            <div class="pa-vid-frame land">
+              <iframe src="https://www.youtube.com/embed/0er-CPY74zw?rel=0&modestbranding=1" title="Yair result" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="pa-vid-card rev" data-delay="3">
+          <div class="pa-vid-copy" style="text-align:right;">
+            <p class="pa-form-lbl">Client Result</p>
+            <h3 class="pa-vid-result">CONSISTENTLY CLOSES MORE THAN 10 DEALS EVERY MONTH</h3>
+            <p class="pa-vid-name">Brian M. — General Contractor</p>
+          </div>
+          <div class="pa-vid-wrap">
+            <div class="pa-vid-frame land">
+              <iframe src="https://www.youtube.com/embed/jLkLQrkPa9I?rel=0&modestbranding=1" title="Brian result" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="pa-vid-card" data-delay="4">
+          <div class="pa-vid-copy">
+            <p class="pa-form-lbl">Client Result</p>
+            <h3 class="pa-vid-result">CLOSED OVER 7 JOBS HIS FIRST MONTH WORKING WITH US</h3>
+          </div>
+          <div class="pa-vid-wrap">
+            <div class="pa-vid-frame short">
+              <iframe src="https://www.youtube.com/embed/paLFMe1w8yg?rel=0&modestbranding=1" title="Client result" allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pa-vids-cta">
+        <a href="#pa-lead-form" class="pa-solid-btn">
+          GET MY FREE STRATEGY CALL
+          <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FINAL CTA ── -->
+  <section class="pa-final">
+    <div class="pa-final-topbar"></div>
+    <div class="pa-final-glow"></div>
+    <div class="pa-final-inner" id="pa-final-inner">
+      <p class="pa-final-pre">Don't Leave Money on the Table</p>
+      <h2 class="pa-final-ttl">READY TO FILL YOUR CALENDAR?</h2>
+      <p class="pa-final-body">Book a free 30-minute strategy call. We'll map out exactly how to add $50K–$80K in new monthly revenue to your hardscape business.</p>
+      <a href="#pa-lead-form" class="pa-final-btn">
+        BOOK MY STRATEGY CALL
+        <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </a>
+      <p class="pa-guarantee"><b>100% Risk-Free.</b> 80+ qualified projects in 12 weeks — <em>GUARANTEED or you don't pay.</em> No long-term contracts.</p>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="pa-footer">
+    <div class="pa-ft-logo">
+      <span class="pa-ft-logo-name">PRIME AMBITION <span>MARKETING</span></span>
+    </div>
+    <div class="pa-ft-links">
+      <a href="/privacy-policy">Privacy Policy</a>
+      <span class="pa-ft-sep">|</span>
+      <a href="/terms">Terms &amp; Conditions</a>
+    </div>
+    <p class="pa-disclaimer">
+      This site is not a part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc. Results shown are not typical. Individual results will vary based on many factors including prior experience, budget, and market conditions.
+    </p>
+    <p class="pa-copy-yr">&copy; <span id="pa-year"></span> Prime Ambition Marketing. All rights reserved.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+
+/* ── Year ── */
+document.getElementById('pa-year').textContent = new Date().getFullYear();
+
+/* ── GHL Form: hide skeleton, show iframe on load ── */
+window.paIframeLoaded = function(){
+  var f = document.getElementById('pa-ghl-iframe');
+  var s = document.getElementById('pa-skel');
+  if(f) f.style.display = 'block';
+  if(s) s.style.display = 'none';
+};
+
+/* ── Load GHL form_embed.js ── */
+var fes = document.createElement('script');
+fes.src = 'https://link.msgsndr.com/js/form_embed.js';
+fes.async = true;
+document.body.appendChild(fes);
+
+/* ── Sticky mobile CTA (visible when form scrolls off screen) ── */
+(function(){
+  var form   = document.getElementById('pa-lead-form');
+  var sticky = document.getElementById('pa-sticky');
+  if(!form||!sticky) return;
+  new IntersectionObserver(function(e){
+    sticky.classList.toggle('show', !e[0].isIntersecting);
+  },{threshold:0.1}).observe(form);
+})();
+
+/* ── SLIDESHOW ──────────────────────────────────────────────────
+   STEP 1: Upload your 7 result images to GHL Media Library or any CDN.
+   STEP 2: Replace YOUR_IMAGE_HOST below with the base URL (no trailing slash).
+   Example: var HOST = 'https://storage.googleapis.com/mybucket';
+   ────────────────────────────────────────────────────────────── */
+(function(){
+  var HOST = 'YOUR_IMAGE_HOST';
+
+  var WINS = [
+    { src: HOST+'/abrham-results.png',              alt:'Abraham client results'    },
+    { src: HOST+'/hardscape-results.png',           alt:'Hardscape project results' },
+    { src: HOST+'/hardscape-results-pt2-ric.jpeg',  alt:'Ricardo hardscape results' },
+    { src: HOST+'/photo_5093770796211047484_y.jpg', alt:'Client result screenshot'  },
+    { src: HOST+'/photo_5093770796211047485_y.jpg', alt:'Client result screenshot'  },
+    { src: HOST+'/photo_5093770796211047486_y.jpg', alt:'Client result screenshot'  },
+    { src: HOST+'/photo_5093770796211047487_y.jpg', alt:'Client result screenshot'  },
+  ];
+
+  var INTERVAL = 3800;
+  var cur = 0, paused = false, timer = null, tx = 0, ty = 0;
+  var area    = document.getElementById('pa-slide-area');
+  var ctrEl   = document.getElementById('pa-ctr');
+  var dotsEl  = document.getElementById('pa-dots');
+  var thumbEl = document.getElementById('pa-thumbs');
+  var progBar = document.getElementById('pa-prog-bar');
+  var show    = document.getElementById('pa-slideshow');
+
+  /* Build slides, dots, thumbs */
+  WINS.forEach(function(w,i){
+    var sl = document.createElement('div');
+    sl.className = 'pa-slide'+(i===0?' active':'');
+    sl.id = 'pa-sl-'+i;
+    var img = document.createElement('img');
+    img.src=w.src; img.alt=w.alt; img.loading=i===0?'eager':'lazy';
+    sl.appendChild(img); area.appendChild(sl);
+
+    var dot = document.createElement('button');
+    dot.className='pa-dot'+(i===0?' active':'');
+    dot.setAttribute('aria-label','Go to slide '+(i+1));
+    dot.addEventListener('click',(function(n){return function(){goTo(n);};})(i));
+    dotsEl.appendChild(dot);
+
+    var th = document.createElement('button');
+    th.className='pa-thumb'+(i===0?' active':'');
+    th.setAttribute('aria-label','View '+w.alt);
+    th.addEventListener('click',(function(n){return function(){goTo(n);};})(i));
+    var ti=document.createElement('img'); ti.src=w.src; ti.alt=w.alt; ti.loading='lazy';
+    th.appendChild(ti); thumbEl.appendChild(th);
+  });
+
+  function ui(){
+    ctrEl.textContent=(cur+1)+' / '+WINS.length;
+    dotsEl.querySelectorAll('.pa-dot').forEach(function(d,i){d.classList.toggle('active',i===cur);});
+    thumbEl.querySelectorAll('.pa-thumb').forEach(function(t,i){t.classList.toggle('active',i===cur);});
+  }
+
+  function goTo(idx){
+    if(idx===cur) return;
+    var dir=idx>cur?1:-1;
+    var old=document.getElementById('pa-sl-'+cur);
+    var nxt=document.getElementById('pa-sl-'+idx);
+    old.classList.remove('active');
+    old.classList.add(dir>0?'exit-l':'exit-r');
+    nxt.style.transition='none';
+    nxt.style.transform=dir>0?'translateX(100%)':'translateX(-100%)';
+    nxt.style.opacity='0';
+    nxt.classList.add('active');
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      nxt.style.transition=''; nxt.style.transform=''; nxt.style.opacity='';
+      setTimeout(function(){old.classList.remove('exit-l','exit-r');},420);
+    });});
+    cur=idx; ui(); resetProg();
+    clearTimeout(timer);
+    if(!paused) timer=setTimeout(function(){goTo((cur+1)%WINS.length);},INTERVAL);
+  }
+
+  function next(){goTo((cur+1)%WINS.length);}
+  function prev(){goTo((cur-1+WINS.length)%WINS.length);}
+  window.paNext=next; window.paPrev=prev;
+
+  function resetProg(){
+    progBar.style.transition='none'; progBar.style.width='0%';
+    if(!paused) requestAnimationFrame(function(){requestAnimationFrame(function(){
+      progBar.style.transition='width '+(INTERVAL/1000)+'s linear'; progBar.style.width='100%';
+    });});
+  }
+
+  window.paSlideshowPause=function(v){
+    paused=v;
+    if(v){clearTimeout(timer);progBar.style.transition='none';}
+    else{resetProg();timer=setTimeout(function(){goTo((cur+1)%WINS.length);},INTERVAL);}
+  };
+
+  show.addEventListener('mouseenter',function(){paSlideshowPause(true);});
+  show.addEventListener('mouseleave',function(){paSlideshowPause(false);});
+  show.addEventListener('touchstart',function(e){tx=e.changedTouches[0].clientX;ty=e.changedTouches[0].clientY;paSlideshowPause(true);},{passive:true});
+  show.addEventListener('touchend',function(e){
+    var dx=tx-e.changedTouches[0].clientX, dy=ty-e.changedTouches[0].clientY;
+    if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40){dx>0?next():prev();}
+    setTimeout(function(){paSlideshowPause(false);},600);
+  },{passive:true});
+
+  ui();
+  timer=setTimeout(function(){goTo((cur+1)%WINS.length);},INTERVAL);
+  resetProg();
+})();
+
+/* ── Fade-in: video cards + final CTA ── */
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var d=parseInt(e.target.getAttribute('data-delay')||'0',10)*60;
+      setTimeout(function(){e.target.classList.add('in-view');},d);
+      obs.unobserve(e.target);
+    });
+  },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.pa-vid-card,#pa-final-inner').forEach(function(el){obs.observe(el);});
+})();
+
+})();
+</script>
