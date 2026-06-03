@@ -23,6 +23,8 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
+html,body{background:#0A1120 !important;margin:0 !important;padding:0 !important;}
+
 .pa-wrap{
   font-family:'Inter',system-ui,sans-serif;
   background:#0A1120;
@@ -600,22 +602,15 @@ document.body.appendChild(fes);
   },{threshold:0.1}).observe(form);
 })();
 
-/* ── SLIDESHOW ──────────────────────────────────────────────────
-   STEP 1: Upload your 7 result images to GHL Media Library or any CDN.
-   STEP 2: Replace YOUR_IMAGE_HOST below with the base URL (no trailing slash).
-   Example: var HOST = 'https://storage.googleapis.com/mybucket';
-   ────────────────────────────────────────────────────────────── */
 (function(){
-  var HOST = 'YOUR_IMAGE_HOST';
-
   var WINS = [
-    { src: HOST+'/abrham-results.png',              alt:'Abraham client results'    },
-    { src: HOST+'/hardscape-results.png',           alt:'Hardscape project results' },
-    { src: HOST+'/hardscape-results-pt2-ric.jpeg',  alt:'Ricardo hardscape results' },
-    { src: HOST+'/photo_5093770796211047484_y.jpg', alt:'Client result screenshot'  },
-    { src: HOST+'/photo_5093770796211047485_y.jpg', alt:'Client result screenshot'  },
-    { src: HOST+'/photo_5093770796211047486_y.jpg', alt:'Client result screenshot'  },
-    { src: HOST+'/photo_5093770796211047487_y.jpg', alt:'Client result screenshot'  },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69d58158beaa70357713bd17.jpeg', alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69d58098aaeb37a460a43760.jpg',  alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69d57faa0cee05bc4ee9e2a0.jpeg', alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69d57eff0cee05bc4ee9c750.png',  alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69d58113ad0e3e3270613ac4.jpg',  alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/6990f28b24813c77da99852a.png',  alt:'Client result screenshot' },
+    { src:'https://assets.cdn.filesafe.space/nLuQoZWd9JX8E78HcV1l/media/69715ec2eb392b79ff68ea06.png',  alt:'Client result screenshot' },
   ];
 
   var INTERVAL = 3800;
