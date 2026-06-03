@@ -15,8 +15,11 @@
     7. photo_5093770796211047487_y.jpg
 -->
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap">
+
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap');
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 
@@ -369,7 +372,6 @@
             style="border:none;width:100%;min-height:520px;display:none;"
             scrolling="no"
             title="Book Your Free Strategy Call"
-            onload="paIframeLoaded()"
           ></iframe>
         </div>
       </div>
@@ -571,13 +573,16 @@
 /* ── Year ── */
 document.getElementById('pa-year').textContent = new Date().getFullYear();
 
-/* ── GHL Form: hide skeleton, show iframe on load ── */
-window.paIframeLoaded = function(){
+/* ── GHL Form: attach load listener, show iframe, hide skeleton ── */
+(function(){
   var f = document.getElementById('pa-ghl-iframe');
   var s = document.getElementById('pa-skel');
-  if(f) f.style.display = 'block';
-  if(s) s.style.display = 'none';
-};
+  if(!f) return;
+  f.addEventListener('load', function(){
+    f.style.display = 'block';
+    if(s) s.style.display = 'none';
+  });
+})();
 
 /* ── Load GHL form_embed.js ── */
 var fes = document.createElement('script');
