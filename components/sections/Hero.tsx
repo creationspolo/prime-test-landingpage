@@ -67,8 +67,8 @@ export default function Hero() {
             <div className="font-headline select-none">
               <div className="hl-l1 text-pure-white leading-none">GET OVER 80</div>
               <div className="hl-l2 text-pure-white leading-none">QUALIFIED BIG</div>
-              <div className="hl-l3 text-pure-white leading-none">PROJECTS IN</div>
-              <div className="hl-l4 text-pure-white leading-none">12 WEEKS</div>
+              <div className="hl-l3 text-pure-white leading-none">PROJECT LEADS</div>
+              <div className="hl-l4 text-pure-white leading-none">IN 12 WEEKS</div>
 
               {/* GUARANTEED — red glow, block on mobile so underline fills full width */}
               <div className="relative block lg:inline-block mt-1">
